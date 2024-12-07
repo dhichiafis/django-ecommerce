@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h2 class="text-center text-white font-bold">Movies</h2>
+    <div class="px-8">
+        <form method="GET">
+            <div class="flex ">
+                <input type="text" placeholder="enter the movie title" name="search" class="py-3 px-4 border-2 border-gray-300 rounded-md">
+                <div class="px-2"></div>
+                <button type="submit" class="py-3 rounded-md text-white bg-gray-900 px-4">search</button>
+            </div>
+        </form>
+
+    </div>
+    <hr class="mt-4 border-1">
+   <div class="mt-9">
+    <div class="grid grid-cols-3 px-8">
+        {% for movie in movies %}
+            <div class=" flex flex-col m-5">
+                <div class="">
+                    <a href="{% url 'movies/movies_detail' movie.id %}">
+                        <img src="{{movie.image.url}}" class="w-full shadow-md rounded-md w-[200px] h-[250px] ">
+                
+                    </a>
+                </div>
+                <div class="mt-5">
+                    <h2 class="text-[28px] font-medium">{{movie.title}}</h2>
+                    <p class="text-[28px] font-bold">${{movie.price}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+   </div>
+</div>
+{% endblock %}

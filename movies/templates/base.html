@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="py-8 px-2 bg-gray-900 text-white ">
+        <div class="flex justify-between items-center">
+            <h2>i am ochieng odhiambo</h2>
+            <div class="flex justify-between items-center space-x-3">
+                <a href="{% url 'movies_list' %}">movies</a>
+            <a href="{% url 'cart_detail' %}">cart</a>
+            </div>
+        </div>
+    </header>
+    <section class="w-full h-80vh">
+        {% block content %}
+    {% endblock %}
+    </section>
+    <footer class="py-8 px-5">
+        <h2 class="text-center px-5">
+            i am the footer
+        </h2>
+    </footer>
+</body>
+</html>

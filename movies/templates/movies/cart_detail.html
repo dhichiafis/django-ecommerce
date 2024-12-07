@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="px-9">
+    
+<p class="text-gray-600 text-[34px] px-8">cart page</p>
+<p>the total={{cart_total}}</p>
+<table class="mb-9">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for movie in movies_in_cart %}
+            <tr>
+                <td>{{movie.id}}</td>
+                <td>{{movie.title}}</td>
+                <td>{{movie.price}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'clear_cart' %}" class="text-white bg-gray-500 
+text-3xl rounded-md px-4 py-3 mt-6">clear cart</a>
+<a href="{% url 'purchase' %}" class="py-3  px-4 bg-gray-500 text-white">purchase</a>
+
+</div>
+{% endblock %}
